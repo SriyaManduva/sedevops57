@@ -1,0 +1,158 @@
+1.Write a sample JUnit Program to compare two strings 
+import static org.junit.Assert.*; 
+import org.junit.Test; 
+public class JunitExample{ 
+@Test 
+public void test_Junit() 
+{ 
+System.out.println("check the string"); 
+String str="check the string"; 
+assertEquals("check the string",str); 
+} 
+} 
+2.Write a JUnit Program to check message is passed or not  
+public class MsgUnit { 
+private String message; 
+public MsgUnit (String message) { 
+this.message = message; 
+} 
+//Prints the message 
+public String printMessage() { 
+System.out.println(message); 
+return message; 
+} 
+} 
+Create a Test class  
+import org.junit.Test; 
+import static org.junit.Assert.assertEquals; 
+public class Test unit { 
+String message = "hello world"; 
+MsgUnit messageUtil = new MsgUnit (message) ; 
+@Test 
+public void testPrintMessage() { 
+assertEquals(message, messageUtil.printMessage()); 
+} 
+} 
+ 
+3.Write a JUnit Program to calculate two numbers  
+package calTest; 
+ 
+public class Calculate { 
+public int sum(int var1,int var2) { 
+System.out.println("Adding values: " + var1 + "+"  + var2); 
+return var1+var2; 
+} 
+} 
+ 
+Create a Test class  
+package calTest; 
+import static org.junit.Assert.*; 
+import org.junit.Test; 
+ 
+public class CalculateTest { 
+ Calculate calculation = new Calculate(); 
+ int sum = calculation.sum(10,5); 
+ int testSum = 15; 
+@Test 
+public void testSum() { 
+System.out.println("@Test sum(): " + sum + " = " +testSum); 
+assertEquals(sum, testSum); 
+ 
+ 
+4.Write a sample JUnit4 program to check whether the test cases pass or fail. 
+ 
+public class Calculator { 
+    public int add(int a, int b) { 
+        return a + b; 
+    } 
+ 
+    public int subtract(int a, int b) { 
+        return a - b; 
+    } 
+ 
+    public int multiply(int a, int b) { 
+        return a * b; 
+    } 
+ 
+    public int divide(int a, int b) { 
+        if (b == 0) { 
+            throw new IllegalArgumentException("Division by zero is not allowed."); 
+        } 
+        return a / b; 
+    } 
+} 
+Create JUnit 4 Test Cases 
+ 
+import static org.junit.Assert.*; 
+import org.junit.Test; 
+ 
+public class CalculatorTest { 
+ 
+    @Test 
+    public void testAddition() { 
+        Calculator calculator = new Calculator(); 
+        assertEquals("Addition test failed", 5, calculator.add(2, 3)); 
+    } 
+ 
+    @Test 
+    public void testSubtraction() { 
+        Calculator calculator = new Calculator(); 
+        assertEquals("Subtraction test failed", 1, calculator.subtract(3, 2)); 
+    } 
+ 
+    @Test 
+    public void testMultiplication() { 
+        Calculator calculator = new Calculator(); 
+        assertEquals("Multiplication test failed", 6, calculator.multiply(2, 3)); 
+    } 
+ 
+    @Test 
+    public void testDivision() { 
+        Calculator calculator = new Calculator(); 
+        assertEquals("Division test failed", 2, calculator.divide(6, 3)); 
+    } 
+ 
+    @Test(expected = IllegalArgumentException.class) 
+    public void testDivisionByZero() { 
+        Calculator calculator = new Calculator(); 
+        calculator.divide(6, 0); // Should throw an exception 
+    } 
+} 
+ 
+ 
+ 
+5.Write a sample JUnit4 program using assert true assert false methods 
+ 
+public class evenNumber { 
+  
+  public boolean isEven(int num) { 
+   
+    if(num%2==0) { 
+      return true; 
+    } 
+    return false; 
+  } 
+} 
+Create JUnit 4 Test Cases 
+ 
+import static org.junit.Assert.*; 
+import org.junit.Test; 
+ 
+public class evenNumberTest { 
+ 
+  @Test 
+  public void testIsEven() { 
+    int sampleNo = 2; 
+     
+    evenNumber numbereven = new evenNumber(); 
+    assertTrue(numbereven.isEven(sampleNo));  
+  } 
+@Test 
+public void testIsEven_FalseCondition() { 
+ 
+    int sampleNo2 = 3; 
+ 
+    evenNumber numbereven = new evenNumber(); 
+    assertFalse(numbereven.isEven(sampleNo2));  
+} 
+} 

@@ -1,0 +1,58 @@
+```bash
+# Ansible Installation
+sudo apt update
+sudo apt install ansible
+ansible --version
+
+# Ansible Execution
+mkdir ~/ansible && cd ~/ansible
+
+echo "[local]
+localhost ansible_connection=local" > hosts.ini
+
+nano local_playbook.yml
+
+ansible-playbook -i hosts.ini local_playbook.yml
+
+
+# Docker Installation
+sudo apt update && sudo apt upgrade -y
+
+sudo install -m 0755 -d /etc/apt/keyrings
+
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | \
+sudo tee /etc/apt/keyrings/docker.asc > /dev/null
+
+echo \
+"deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] \
+https://download.docker.com/linux/ubuntu \
+$(lsb_release -cs) stable" | \
+sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+sudo apt update
+
+sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+sudo systemctl enable --now docker
+
+
+# Docker Commands
+sudo systemctl status docker
+
+sudo docker run hello-world
+
+sudo docker run -it ubuntu bash
+
+sudo docker images
+
+sudo docker ps
+
+sudo docker stop <container_id>
+
+
+# Python in Docker
+sudo docker run -it python
+
+# Java in Docker
+sudo docker run -it openjdk bash
+```

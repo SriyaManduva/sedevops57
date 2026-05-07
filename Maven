@@ -1,0 +1,75 @@
+Here are the **Maven commands** extracted from your document:
+
+### Maven Installation
+
+```bash
+sudo apt update
+sudo apt install maven -y
+mvn -version
+```
+
+### Create a Maven Project
+
+```bash
+mvn archetype:generate \
+-DgroupId=com.example \
+-DartifactId=my-app \
+-DarchetypeArtifactId=maven-archetype-quickstart \
+-DinteractiveMode=false
+```
+
+### Navigate to Project
+
+```bash
+cd my-app
+ls
+ls -R
+```
+
+### Build and Compile Project
+
+```bash
+mvn clean compile
+```
+
+### Run Java Application using Maven
+
+```bash
+mvn exec:java -Dexec.mainClass="com.example.App"
+```
+
+### Package the Project
+
+```bash
+mvn package
+```
+
+### Run Generated JAR File
+
+```bash
+java -cp target/my-app-1.0-SNAPSHOT.jar com.example.App
+```
+
+### Check Java Installation
+
+```bash
+java -version
+```
+
+### Maven Related Files/Directories
+
+* `pom.xml` → Maven Project Object Model file
+* `.m2` → Maven Local Repository directory
+
+### Common Maven Lifecycle Commands
+
+```bash
+mvn validate
+mvn compile
+mvn test
+mvn package
+mvn verify
+mvn install
+mvn deploy
+mvn clean
+```

@@ -7,10 +7,19 @@ ansible --version
 # Ansible Execution
 mkdir ~/ansible && cd ~/ansible
 
-echo "[local]
-localhost ansible_connection=local" > hosts.ini
+[local]
+localhost ansible_connection=local
 
-nano local_playbook.yml
+touch local_playbook.yml
+---
+-name: Install Nginx on Local Machine 
+hosts: local 
+become: yes  
+tasks: 
+- name: Ensure Nginx is installed 
+apt: 
+name: nginx 
+state: present
 
 ansible-playbook -i hosts.ini local_playbook.yml
 
